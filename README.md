@@ -52,3 +52,5 @@ Record your actual run results in `interop-report.json` (matrix tab, Export) and
 
 ## Known limits
 Live mode has not been run against a deployed stack by the author of this scaffold. Field names in the Inji Verify `/vp-request` response, and the issuer metadata URL, differ between releases: adjust `server.js` if the QR link is empty. Full OpenID4VCI issuance against Inji Certify needs eSignet login and a wallet, so issuance is tested by scanning offers with Inji Wallet, not automated here.
+## Team
+- Nithya C, role: UI and 3D, Mangalore Institute Of Engineering And Technology
