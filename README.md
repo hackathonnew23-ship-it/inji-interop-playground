@@ -55,3 +55,20 @@ Live mode has not been run against a deployed stack by the author of this scaffo
 ## Team
 - Nithya C, role: UI and 3D, Mangalore Institute Of Engineering And Technology
 - Pranav S J, role: Frontend, National Institute of Technology Calicut
+- ## Live test findings and known limits
+
+Tested against Inji Verify (v1.0.0-alpha.1 style OpenID4VP 1.0 flow) exposed through a Cloudflare tunnel, with Inji Wallet 1.0.0-alpha.1 on Android.
+
+What works:
+- The playground discovers real credential formats from a third-party OpenID4VCI issuer (dc+sd-jwt, mso_mdoc).
+- POST /vp-request to Inji Verify returns a transaction and request id; the playground builds the openid4vp:// link and QR from it.
+- The signed request object is fetchable at /v1/verify/v2/vp-request/{id} (HTTP 200, application/oauth-authz-req+jwt).
+- The verifier DID document resolves at /v1/verify/did.json.
+
+What did not work:
+- Inji Wallet rejected the QR with "Invalid request link".
+- The request header names the signing key did:web:<host>:verify#key-0 (no /v1), while the DID document is served at /v1/verify/did.json. The URL /verify/did.json returns an HTML page instead of a DID document.
+- Changing INJI_DID_VERIFY_PUBLIC_KEY_URI to include v1 did not change the wallet's result.
+- The wallet had no usable mock credential matching the request at the time of testing, so the full present-and-verify round trip was not completed.
+
+Reproduce: docs/LIVE-MODE.md and scripts/check-live.mjs. The 80-run simulated matrix in docs/test-results/ covers the full protocol logic.
