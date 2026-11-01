@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Inji Interop Playground</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🔗</text></svg>">
+<style>
+:root{color-scheme:dark;--bg:#060a14;--card:rgba(14,22,44,.82);--line:#2b3d6b;--tx:#e8eeff;--mut:#98a6d0;--ac:#4de2c5;--ac2:#8392ff;--warm:#ffa56b;--bad:#ff6b81;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 "Trebuchet MS","Segoe UI",system-ui,sans-serif}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.app{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:18px 16px 120px;pointer-events:none}.app>*{pointer-events:auto}h1,nav{width:fit-content;max-width:100%}
+h1{font:700 clamp(1.6rem,4vw,2.5rem)/1.1 Georgia,"Times New Roman",serif;margin:0 0 6px;letter-spacing:.2px}
+.sub{color:var(--mut);max-width:62ch;margin:0 0 14px}
+.badge{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:3px 12px;color:var(--ac);background:rgba(77,226,197,.07);font-size:13px;margin-bottom:12px}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+nav button{background:var(--card);color:var(--mut);border:1px solid var(--line);border-radius:10px;padding:8px 14px;cursor:pointer;font:inherit}
+nav button.on{color:#04120f;background:var(--ac);border-color:var(--ac);font-weight:700}
+main{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:14px}
+@media(max-width:860px){main{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;backdrop-filter:blur(6px)}
+.panel h2{margin:0 0 10px;font:700 1.15rem Georgia,serif}
+label{display:block;color:var(--mut);font-size:13px;margin:8px 0 3px}
+select,input{width:100%;background:#0a1226;color:var(--tx);border:1px solid var(--line);border-radius:8px;padding:8px;font:inherit}
+select:focus,input:focus,button:focus-visible{outline:2px solid var(--ac2);outline-offset:1px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{margin-top:12px;background:var(--ac2);color:#06091a;border:0;border-radius:9px;padding:9px 16px;font:700 15px inherit;cursor:pointer}
+.btn.alt{background:transparent;color:var(--tx);border:1px solid var(--line)}
+.card{border:1px solid var(--line);border-radius:12px;padding:12px;margin:8px 0;cursor:pointer;background:linear-gradient(135deg,rgba(77,226,197,.10),rgba(131,146,255,.10))}
+.card.sel{border-color:var(--ac);box-shadow:0 0 0 1px var(--ac)}
+.card small,.mut{color:var(--mut)}code{font:12px ui-monospace,Menlo,monospace;color:var(--warm);word-break:break-all}
+.chk{display:flex;gap:8px;align-items:center;margin:4px 0}.chk input{width:auto}
+.step{display:flex;gap:9px;margin:7px 0;font-size:13.5px}.dot{flex:none;width:10px;height:10px;border-radius:50%;margin-top:6px;background:var(--ac)}.dot.f{background:var(--bad)}
+.banner{border-radius:10px;padding:10px 12px;font-weight:700;margin-bottom:8px}.banner.ok{background:rgba(77,226,197,.14);color:var(--ac)}.banner.no{background:rgba(255,107,129,.14);color:var(--bad)}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:430px}th,td{border:1px solid var(--line);padding:8px;text-align:center;font-size:13px}
+td.cell{cursor:pointer}td.p{background:rgba(77,226,197,.14);color:var(--ac)}td.x{background:rgba(255,107,129,.13);color:var(--bad)}
+#bot{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:5;display:flex;align-items:flex-end;gap:8px;max-width:min(360px,88vw)}
+#bub{background:#101a38;border:1px solid var(--ac);border-radius:14px 14px 4px 14px;padding:10px 12px;font-size:13.5px}
+#bot svg{flex:none;cursor:pointer;animation:bob 3s ease-in-out infinite}.eye{animation:blink 5s infinite;transform-origin:center;transform-box:fill-box}
+@keyframes bob{50%{transform:translateY(-6px)}}@keyframes blink{94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+@media(prefers-reduced-motion:reduce){#bot svg,.eye{animation:none}}
+</style></head><body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="app">
+<span class="badge">Simulated mode: real ES256 signatures, generated in your browser</span>
+<h1>Inji Interop Playground</h1>
+<p class="sub">Issue, hold, present and verify a credential across Inji and third-party products, then see exactly where interoperability breaks.</p>
+<nav id="tabs"></nav>
+<main><section id="main" class="panel"></section><aside class="panel"><h2>Protocol trace</h2><div id="log"><span class="mut">Run a step and each OpenID4VCI / OpenID4VP message appears here.</span></div></aside></main>
+</div>
+<div id="bot"><div id="bub"></div>
+<svg viewBox="0 0 80 92" width="70" height="80" role="img" aria-label="Guide robot, click to hide or show tips"><line x1="40" y1="8" x2="40" y2="19" stroke="#4de2c5" stroke-width="3"/><circle cx="40" cy="7" r="5" fill="#ffa56b"/><rect x="12" y="19" width="56" height="40" rx="13" fill="#17224a" stroke="#4de2c5" stroke-width="2.5"/><circle class="eye" cx="29" cy="39" r="6.5" fill="#4de2c5"/><circle class="eye" cx="51" cy="39" r="6.5" fill="#4de2c5"/><rect x="21" y="63" width="38" height="24" rx="9" fill="#17224a" stroke="#8392ff" stroke-width="2.5"/></svg></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>
+// ---------- helpers ----------
+const $=s=>document.querySelector(s), enc=s=>new TextEncoder().encode(s);
+const b64=u=>btoa(String.fromCharCode(...new Uint8Array(u))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+const b64s=s=>b64(enc(s));
+const unb=s=>{s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return Uint8Array.from(atob(s),c=>c.charCodeAt(0))};
+const rnd=()=>Math.random().toString(36).slice(2,10);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// ---------- simulated products (formats each one supports) ----------
+const ISS={inji:{name:'Inji Certify',fmt:['ldp_vc','sd-jwt']},ext:{name:'Third-party Issuer',fmt:['sd-jwt']}};
+const WAL={inji:{name:'Inji Wallet',fmt:['ldp_vc','sd-jwt']},ext:{name:'Third-party Wallet',fmt:['ldp_vc']}};
+const VER={inji:{name:'Inji Verify',fmt:['ldp_vc','sd-jwt']},ext:{name:'Third-party Verifier',fmt:['sd-jwt']}};
+const SCN={none:'Normal flow',tamper:'Tampered claim',expired:'Expired credential',nonce:'Wrong nonce (replay)',revoked:'Revoked credential'};
+const K={}, S={tab:'issue',wallet:[],sel:null,req:null,res:null,trace:[],revoked:new Set(),mx:{}};
+
+async function initKeys(){for(const k of ['inji','ext'])K[k]=await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},false,['sign','verify'])}
+async function sign(ik,pay,fmt){const d=b64s(JSON.stringify({alg:'ES256',typ:fmt}))+'.'+b64s(JSON.stringify(pay));return d+'.'+b64(await crypto.subtle.sign({name:'ECDSA',hash:'SHA-256'},K[ik].privateKey,enc(d)))}
+const sigOK=async(ik,j)=>{const[h,p,s]=j.split('.');return crypto.subtle.verify({name:'ECDSA',hash:'SHA-256'},K[ik].publicKey,unb(s),enc(h+'.'+p))};
+const body=j=>JSON.parse(new TextDecoder().decode(unb(j.split('.')[1])));
+
+// ---------- core protocol simulation (OpenID4VCI) ----------
+async function issueCore(ik,wk,fmt,claims){
+  const T=[],I=ISS[ik],W=WAL[wk],st=(t,d,ok=true)=>T.push({t,d,ok});
+  if(!I.fmt.includes(fmt)){st('Issuer metadata',I.name+' does not offer '+fmt+'. It offers: '+I.fmt.join(', '),false);return{ok:false,T}}
+  st('Issuer metadata','GET /.well-known/openid-credential-issuer lists '+fmt);
+  if(!W.fmt.includes(fmt)){st('Credential offer',W.name+' cannot accept '+fmt+'. It accepts: '+W.fmt.join(', '),false);return{ok:false,T}}
+  st('Credential offer','openid-credential-offer:// sent to '+W.name+' (pre-authorized code)');
+  const cn=rnd();st('Token and proof','Code exchanged for access token. Wallet proves key ownership with c_nonce '+cn);
+  const now=Math.floor(Date.now()/1000),jti='urn:uuid:'+rnd()+rnd();
+  const jwt=await sign(ik,{iss:I.name,sub:'did:example:holder',jti,iat:now,exp:now+3600,vc:claims},fmt);
+  st('Credential issued',I.name+' signed a '+fmt+' credential with ES256');
+  return{ok:true,T,cred:{jti,fmt,jwt,claims,ik,wk}};
+}
+// ---------- core protocol simulation (OpenID4VP) ----------
+async function verifyCore(vk,cred,nonce,scn,shared){
+  const V=VER[vk],T=[],chk=(n,ok,d)=>T.push({t:n,d,ok});
+  let jwt=cred.jwt,pn=nonce;const p=body(jwt);
+  if(scn==='tamper'){const[h,,s]=jwt.split('.');const q={...p,vc:{...p.vc,name:'Mallory'}};jwt=h+'.'+b64s(JSON.stringify(q))+'.'+s}
+  if(scn==='expired')jwt=await sign(cred.ik,{...p,exp:Math.floor(Date.now()/1000)-60},cred.fmt);
+  if(scn==='nonce')pn='replayed-'+rnd();
+  if(scn==='revoked')S.revoked.add(cred.jti);
+  const q=body(jwt);
+  chk('Format supported',V.fmt.includes(cred.fmt),V.name+(V.fmt.includes(cred.fmt)?' understands ':' cannot read ')+cred.fmt);
+  chk('Issuer signature',await sigOK(cred.ik,jwt),'ES256 signature checked against the issuer public key');
+  chk('Not expired',q.exp>Date.now()/1000,'exp = '+new Date(q.exp*1000).toLocaleTimeString());
+  chk('Nonce matches request',pn===nonce,'request nonce '+nonce+', presented '+pn);
+  chk('Not revoked',!S.revoked.has(cred.jti),'status list lookup for '+cred.jti.slice(-8));
+  const disclosed=Object.fromEntries(Object.entries(q.vc).filter(([k])=>!shared||shared.includes(k)));
+  return{ok:T.every(c=>c.ok),checks:T,disclosed};
+}
+
+// ---------- UI ----------
+const TIPS={issue:'Step 1. Pick who issues the credential and which wallet receives it. Not every product supports every format. That mismatch is the interoperability problem.',
+wallet:'Step 2. This is the holder wallet. Click a credential to select it, then go to Present.',
+present:'Step 3. The verifier asks for proof with a fresh nonce. You choose which fields to share. Try a scenario to attack the flow.',
+verify:'Step 4. The verifier runs five checks. One failed check is enough to reject the credential.',
+matrix:'The matrix runs every issuer, wallet and verifier pairing in one click. Click any cell to read its trace.',
+live:'Live mode talks to real Inji services through the repo backend. Scan the QR with a real Inji Wallet.',
+learn:'A two minute guide to the two protocols this playground tests.'};
+const TABS=[['issue','Issue'],['wallet','Wallet'],['present','Present'],['verify','Verify'],['matrix','Interop matrix'],['live','Live Inji'],['learn','Learn']];
+const opt=(o,sel)=>Object.entries(o).map(([k,v])=>`<option value="${k}"${k===sel?' selected':''}>${esc(v.name||v)}</option>`).join('');
+const FMT='<option value="sd-jwt">sd-jwt</option><option value="ldp_vc">ldp_vc</option>';
+function say(t){$('#bub').textContent=t}
+function setLog(T){$('#log').innerHTML=T.map(s=>`<div class="step"><span class="dot ${s.ok?'':'f'}"></span><div><b>${esc(s.t)}</b><br><span class="mut">${esc(s.d)}</span></div></div>`).join('')||'<span class="mut">No steps yet.</span>'}
+function go(t){S.tab=t;$('#tabs').innerHTML=TABS.map(([k,n])=>`<button data-t="${k}" class="${k===t?'on':''}">${n}</button>`).join('');
+  $('#tabs').querySelectorAll('button').forEach(b=>b.onclick=()=>go(b.dataset.t));render();say(TIPS[t])}
+function render(){const m=$('#main'),t=S.tab;
+if(t==='issue')m.innerHTML=`<h2>Issue a credential</h2><div class="row"><div><label>Issuer</label><select id="iss">${opt(ISS)}</select></div><div><label>Receiving wallet</label><select id="wal">${opt(WAL)}</select></div></div>
+<div class="row"><div><label>Credential format</label><select id="fmt">${FMT}</select></div><div><label>Credential type</label><select id="typ"><option>University ID</option><option>Farmer Certificate</option></select></div></div>
+<label>Holder name</label><input id="f1" value="Asha Rao"><div class="row"><div><label>ID number</label><input id="f2" value="BLR-2026-0417"></div><div><label>Detail (course or crop)</label><input id="f3" value="B.Tech Computer Science"></div></div>
+<button class="btn" id="go">Issue credential</button>`,
+$('#go').onclick=async()=>{const r=await issueCore($('#iss').value,$('#wal').value,$('#fmt').value,{type:$('#typ').value,name:$('#f1').value,number:$('#f2').value,detail:$('#f3').value});
+  setLog(r.T);if(r.ok){S.wallet.push(r.cred);S.sel=r.cred;pulse(0,1);say('Issued. The credential is now in the wallet. Open the Wallet tab.')}else say('Issuance failed: '+r.T.at(-1).d)};
+if(t==='wallet')m.innerHTML=`<h2>Wallet</h2>`+(S.wallet.length?S.wallet.map((c,i)=>`<div class="card ${c===S.sel?'sel':''}" data-i="${i}"><b>${esc(c.claims.type)}</b> <small>${c.fmt} from ${ISS[c.ik].name} in ${WAL[c.wk].name}</small><br>${esc(c.claims.name)} · ${esc(c.claims.number)}<br><code>${c.jwt.slice(0,60)}…</code></div>`).join(''):'<p class="mut">Your wallet is empty. Issue a credential first.</p>');
+if(t==='wallet')m.querySelectorAll('.card').forEach(e=>e.onclick=()=>{S.sel=S.wallet[e.dataset.i];render()});
+if(t==='present'){if(!S.sel){m.innerHTML='<h2>Present</h2><p class="mut">Select a credential in the Wallet first.</p>';return}
+  m.innerHTML=`<h2>Present to a verifier</h2><label>Verifier</label><select id="ver">${opt(VER)}</select><button class="btn alt" id="rq">Create presentation request</button>
+  <p class="mut" id="rqi">${S.req?'Request nonce: <code>'+S.req.nonce+'</code>':'No request yet.'}</p><label>Fields to share (selective disclosure)</label>
+  ${Object.keys(S.sel.claims).map(k=>`<div class="chk"><input type="checkbox" class="sh" value="${k}" checked id="c${k}"><label for="c${k}" style="margin:0">${k}: ${esc(S.sel.claims[k])}</label></div>`).join('')}
+  <label>Scenario</label><select id="scn">${Object.entries(SCN).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select><button class="btn" id="pr">Send to verifier</button>`;
+  $('#rq').onclick=()=>{S.req={nonce:rnd()+rnd()};$('#rqi').innerHTML='Request nonce: <code>'+S.req.nonce+'</code>';setLog([{t:'Authorization request',d:'response_type=vp_token, nonce '+S.req.nonce,ok:true}]);pulse(2,1)};
+  $('#pr').onclick=async()=>{if(!S.req)return say('Create a presentation request first.');const shared=[...document.querySelectorAll('.sh:checked')].map(e=>e.value);
+    S.res=await verifyCore($('#ver').value,S.sel,S.req.nonce,$('#scn').value,shared);S.res.v=VER[$('#ver').value].name;setLog(S.res.checks.map(c=>({t:c.t,d:c.d,ok:c.ok})));pulse(1,2);go('verify');say(S.res.ok?'Accepted. Every check passed.':'Rejected. Look at the failed check.')}}
+if(t==='verify'){if(!S.res){m.innerHTML='<h2>Verification result</h2><p class="mut">Nothing presented yet.</p>';return}
+  m.innerHTML=`<h2>Verification by ${esc(S.res.v)}</h2><div class="banner ${S.res.ok?'ok':'no'}">${S.res.ok?'Credential accepted':'Credential rejected'}</div>`+S.res.checks.map(c=>`<div class="step"><span class="dot ${c.ok?'':'f'}"></span><div><b>${c.t}</b><br><span class="mut">${esc(c.d)}</span></div></div>`).join('')+`<label>Disclosed to verifier</label><code>${esc(JSON.stringify(S.res.disclosed))}</code>`}
+if(t==='matrix'){m.innerHTML=`<h2>Interoperability matrix</h2><div class="row"><div><label>Format under test</label><select id="mf">${FMT}</select></div><div><label>Scenario</label><select id="ms">${Object.entries(SCN).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select></div></div><button class="btn" id="mr">Run all 8 combinations</button> <button class="btn alt" id="mj">Export report (JSON)</button><div class="tw" id="mt"></div><p class="mut">Pass means the flow works. In an attack scenario, REJECTED means the verifier correctly caught it.</p>`;
+  const draw=()=>{let h='<table><tr><th>Issuer → Wallet</th>'+Object.values(VER).map(v=>`<th>${v.name}</th>`).join('')+'</tr>';
+    for(const i in ISS)for(const w in WAL){h+=`<tr><th>${ISS[i].name} → ${WAL[w].name}</th>`;for(const v in VER){const c=S.mx[i+w+v];h+=c?`<td class="cell ${c.pass?'p':'x'}" data-k="${i+w+v}">${c.label}</td>`:'<td class="mut">not run</td>'}h+='</tr>'}$('#mt').innerHTML=h+'</table>';
+    document.querySelectorAll('td.cell').forEach(e=>e.onclick=()=>{setLog(S.mx[e.dataset.k].T);say('This is the trace for that pairing.')})};
+  draw();$('#mr').onclick=async()=>{const f=$('#mf').value,sc=$('#ms').value;S.mx={};
+    for(const i in ISS)for(const w in WAL)for(const v in VER){const r=await issueCore(i,w,f,{type:'University ID',name:'Test Holder',number:'T-001',detail:'Demo'});let T=r.T,pass=false,label='FAIL';
+      if(r.ok){const n=rnd(),x=await verifyCore(v,r.cred,n,sc,null);T=r.T.concat(x.checks);const bad=x.checks.find(c=>!c.ok);
+        if(sc==='none'){pass=x.ok;label=pass?'PASS':'FAIL'}else{pass=!x.ok&&bad.t!=='Format supported';label=pass?'REJECTED ✓':'FAIL'}}
+      S.mx[i+w+v]={pass,label,T}}pulse(0,1);pulse(1,2);draw();const ok=Object.values(S.mx).filter(c=>c.pass).length;say(ok+' of 8 combinations behaved correctly. Click a failed cell to see why.')}}
+if(t==='matrix')$('#mj').onclick=()=>{const rep={generated:new Date().toISOString(),format:$('#mf').value,scenario:$('#ms').value,results:Object.fromEntries(Object.entries(S.mx).map(([k,v])=>[k,{pass:v.pass,label:v.label,steps:v.T}]))};const s=JSON.stringify(rep,null,2);setLog([{t:'Report ready',d:'Copied to the clipboard when allowed, and downloaded as interop-report.json when hosted from the repo.',ok:true}]);try{navigator.clipboard.writeText(s)}catch(e){}try{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([s],{type:'application/json'}));a.download='interop-report.json';a.click()}catch(e){}};
+if(t==='live')liveTab(m);
+if(t==='learn')m.innerHTML=`<h2>How the two protocols work</h2><h3>OpenID4VCI: getting a credential</h3><ol><li>The wallet reads the issuer metadata to learn which formats it offers.</li><li>The issuer sends a credential offer, usually as a QR code.</li><li>The wallet swaps the offer code for an access token and proves it holds a key (c_nonce).</li><li>The issuer signs the credential and returns it.</li></ol><h3>OpenID4VP: showing a credential</h3><ol><li>The verifier creates a request with a nonce and says which fields it needs.</li><li>The wallet lets the holder pick what to share.</li><li>The wallet sends a signed presentation (vp_token) back.</li><li>The verifier checks format, signature, expiry, nonce and revocation.</li></ol><p class="mut">Interoperability fails when two products disagree on any of these steps. The matrix finds exactly where.</p>`;
+}
+
+// ---------- 3D background ----------
+let pulse=()=>{};
+try{const R=new THREE.WebGLRenderer({canvas:$('#bg'),antialias:true,alpha:true}),sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(55,1,.1,100),g=new THREE.Group();cam.position.z=15;sc.add(g);
+const P=[[-6.5,2.5,0],[0,-2.8,0],[6.5,2.5,0]],C=[0x4de2c5,0x8392ff,0xffa56b];
+const N=P.map((p,i)=>{const m=new THREE.Mesh(new THREE.IcosahedronGeometry(1.1,1),new THREE.MeshBasicMaterial({color:C[i],wireframe:true,transparent:true,opacity:.75}));m.position.set(...p);g.add(m);return m});
+const LB=['Issuer','Wallet','Verifier'],TAB=['issue','wallet','present'];
+N.forEach((n,i)=>{const c=document.createElement('canvas');c.width=256;c.height=64;const x=c.getContext('2d');x.font='bold 34px sans-serif';x.fillStyle='#e8eeff';x.textAlign='center';x.fillText(LB[i],128,44);const s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),transparent:true}));s.scale.set(4,1,1);s.position.set(P[i][0],P[i][1]-2,0);g.add(s)});
+const cards=[];for(let i=0;i<10;i++){const m=new THREE.Mesh(new THREE.PlaneGeometry(1.5,.95),new THREE.MeshBasicMaterial({color:C[i%3],transparent:true,opacity:.18,side:THREE.DoubleSide}));m.userData={r:6+Math.random()*6,s:.12+Math.random()*.2,o:Math.random()*6,y:(Math.random()-.5)*9};g.add(m);cards.push(m)}
+const rc=new THREE.Raycaster(),mv=new THREE.Vector2(),hit=e=>{mv.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight)*2+1);rc.setFromCamera(mv,cam);const h=rc.intersectObjects(N)[0];return h?N.indexOf(h.object):-1};
+$('#bg').addEventListener('click',e=>{const i=hit(e);if(i>=0){go(TAB[i]);pulse(i,(i+1)%3)}});
+const pts=[[0,1],[1,2],[2,0]];pts.forEach(([a,b])=>g.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([N[a].position,N[b].position]),new THREE.LineBasicMaterial({color:0x2b3d6b}))));
+const sv=[];for(let i=0;i<500;i++)sv.push((Math.random()-.5)*60,(Math.random()-.5)*36,(Math.random()-.5)*30-8);
+const sg=new THREE.BufferGeometry();sg.setAttribute('position',new THREE.Float32BufferAttribute(sv,3));const stars=new THREE.Points(sg,new THREE.PointsMaterial({color:0x8fa0e0,size:.07}));sc.add(stars);
+const pk=[];pulse=(a,b)=>{for(let i=0;i<6;i++){const m=new THREE.Mesh(new THREE.SphereGeometry(.17,8,8),new THREE.MeshBasicMaterial({color:C[a]}));g.add(m);pk.push({m,a,b,t:-i*.12})}};
+const fit=()=>{const w=innerWidth,h=innerHeight;R.setPixelRatio(Math.min(devicePixelRatio,2));R.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();g.scale.setScalar(Math.min(1,w/h*.85))};fit();addEventListener('resize',fit);
+let mx=0,my=0;addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;const h=hit(e);$('#bg').style.cursor=h>=0?'pointer':'default';N.forEach((n,i)=>n.scale.setScalar(i===h?1.35:1))});
+const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+(function loop(){requestAnimationFrame(loop);const t=performance.now()/1000;
+ if(!calm){N.forEach((n,i)=>{n.rotation.x=t*.3+i;n.rotation.y=t*.4});stars.rotation.y=t*.01;g.rotation.y+=((mx*.5)-g.rotation.y)*.04;g.rotation.x+=((my*.3)-g.rotation.x)*.04}
+ if(!calm)cards.forEach(m=>{const u=m.userData;m.position.set(Math.cos(t*u.s+u.o)*u.r,u.y+Math.sin(t+u.o),Math.sin(t*u.s+u.o)*u.r*.6-3);m.rotation.y=t*.5+u.o});
+ for(let i=pk.length-1;i>=0;i--){const o=pk[i];o.t+=.016;if(o.t<0){o.m.visible=false;continue}o.m.visible=true;if(o.t>=1){g.remove(o.m);pk.splice(i,1);continue}o.m.position.lerpVectors(N[o.a].position,N[o.b].position,o.t)}
+ R.render(sc,cam)})();
+setInterval(()=>pulse(Math.floor(Math.random()*3),Math.floor(Math.random()*3)),5000);
+}catch(e){}
+
+// ---------- live mode (needs the repo backend) ----------
+let LIVE=null;
+async function discover(){try{const r=await fetch('/api/discover');if(!r.ok)return;LIVE=await r.json();const set=(o,k,x)=>{if(x&&x.ok&&x.formats.length){o[k].fmt=x.formats;o[k].name=x.name+' (live)'}};set(ISS,'inji',LIVE.issuers.inji);set(ISS,'ext',LIVE.issuers.ext);set(VER,'inji',LIVE.verifier);document.querySelector('.badge').textContent='Live mode: formats discovered from real services'}catch(e){}}
+function liveTab(m){if(!LIVE){m.innerHTML='<h2>Live Inji services</h2><p class="mut">No backend detected. Start the server from the repo (see README) to test real Inji Certify and Inji Verify here.</p>';return}
+ const rows=[LIVE.issuers.inji,LIVE.issuers.ext,LIVE.verifier].map(s=>`<div class="step"><span class="dot ${s.ok?'':'f'}"></span><div><b>${esc(s.name)}</b><br><span class="mut">${s.ok?'formats: '+s.formats.join(', '):esc(s.error||'unreachable')}</span></div></div>`).join('');
+ m.innerHTML=`<h2>Live Inji services</h2>${rows}<button class="btn" id="lv">Create real Inji Verify request</button><div id="qr" style="margin-top:12px;background:#fff;padding:10px;border-radius:10px;display:none;width:fit-content"></div><p><code id="uri"></code></p>`;
+ $('#lv').onclick=async()=>{const r=await(await fetch('/api/verify/request',{method:'POST'})).json();if(r.error){setLog([{t:'POST /vp-request',d:r.error,ok:false}]);return}
+  $('#uri').textContent=r.uri;if(window.qrcode&&r.uri){const q=qrcode(0,'M');q.addData(r.uri);q.make();$('#qr').innerHTML=q.createSvgTag(5);$('#qr').style.display='block'}
+  setLog([{t:'POST /vp-request',d:'transaction '+r.txn,ok:true}]);say('Scan this QR with Inji Wallet and share a credential. I will poll for the result.');pulse(2,1);
+  const tick=async()=>{const x=await(await fetch('/api/verify/result/'+r.txn)).json();if(x.pending){setTimeout(tick,3000);return}setLog([{t:'GET /vp-result',d:JSON.stringify(x).slice(0,400),ok:!x.error}]);pulse(1,2);say('Result received from the real Inji Verify.')};tick()}}
+// ---------- boot ----------
+$('#bot svg').onclick=()=>{const b=$('#bub');b.style.display=b.style.display==='none'?'':'none'};
+initKeys().then(()=>discover()).then(()=>go('issue'));
+</script></body></html>
