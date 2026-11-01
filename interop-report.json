@@ -1,0 +1,2685 @@
+{
+  "generated": "2026-11-01T06:18:01.476Z",
+  "results": {
+    "sd-jwt__none": {
+      "Inji Certify > Inji Wallet > Inji Verify": {
+        "pass": true,
+        "label": "PASS",
+        "reason": "",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce myvrxw7j",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce mjaqlgdx, presented mjaqlgdx",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for 1au5yoem",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Inji Wallet > Third-party Verifier": {
+        "pass": true,
+        "label": "PASS",
+        "reason": "",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce zfumm3eh",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce gn6wigeo, presented gn6wigeo",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for njmuyqc1",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Inji Verify": {
+        "pass": true,
+        "label": "PASS",
+        "reason": "",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce de3asqa8",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Third-party Issuer signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce dh5abwi3, presented dh5abwi3",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for 7vvaimpt",
+            "ok": true
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Third-party Verifier": {
+        "pass": true,
+        "label": "PASS",
+        "reason": "",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce 6utz9qim",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Third-party Issuer signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce e7x5naw8, presented e7x5naw8",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for cgjn69e3",
+            "ok": true
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      }
+    },
+    "sd-jwt__tamper": {
+      "Inji Certify > Inji Wallet > Inji Verify": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Issuer signature: ES256 signature checked against the issuer public key",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce tsbw1i70",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": false
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce mawijuwj, presented mawijuwj",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for h6j9wz4r",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Inji Wallet > Third-party Verifier": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Issuer signature: ES256 signature checked against the issuer public key",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce efb9e958",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": false
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce j02jtu7h, presented j02jtu7h",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for ni6p65pm",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Inji Verify": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Issuer signature: ES256 signature checked against the issuer public key",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce rsm1lpc7",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Third-party Issuer signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": false
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce 5kx206zo, presented 5kx206zo",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for nvjvx8c1",
+            "ok": true
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Third-party Verifier": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Issuer signature: ES256 signature checked against the issuer public key",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce lowgvrgp",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Third-party Issuer signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": false
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce dzmlv5ez, presented dzmlv5ez",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for kj1usnnq",
+            "ok": true
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      }
+    },
+    "sd-jwt__expired": {
+      "Inji Certify > Inji Wallet > Inji Verify": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Not expired: exp = 6:17:01 AM",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce js5jh2iv",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 6:17:01 AM",
+            "ok": false
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce wj9cdf8p, presented wj9cdf8p",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for v49637ka",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Inji Wallet > Third-party Verifier": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Not expired: exp = 6:17:01 AM",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce ybyadyqe",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 6:17:01 AM",
+            "ok": false
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce 991cuex3, presented 991cuex3",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for psa57wei",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Inji Verify": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Not expired: exp = 6:17:01 AM",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce o27e8aa3",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Third-party Issuer signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 6:17:01 AM",
+            "ok": false
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce 57o2mbc0, presented 57o2mbc0",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for 7vnblr8j",
+            "ok": true
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Third-party Verifier": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Not expired: exp = 6:17:01 AM",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce xp5jw3jf",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Third-party Issuer signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 6:17:01 AM",
+            "ok": false
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce kvkcgmks, presented kvkcgmks",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for 8dk77wse",
+            "ok": true
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      }
+    },
+    "sd-jwt__nonce": {
+      "Inji Certify > Inji Wallet > Inji Verify": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Nonce matches request: request nonce ebnzb26g, presented replayed-brjuk8ly",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce izsoygz6",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce ebnzb26g, presented replayed-brjuk8ly",
+            "ok": false
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for 27o3x73m",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Inji Wallet > Third-party Verifier": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Nonce matches request: request nonce 4vpuw7y0, presented replayed-25cpbcln",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce 2acyf192",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce 4vpuw7y0, presented replayed-25cpbcln",
+            "ok": false
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for 3690emqn",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Inji Verify": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Nonce matches request: request nonce 529mjwqt, presented replayed-whaqlm61",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce 4xhlg9ws",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Third-party Issuer signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce 529mjwqt, presented replayed-whaqlm61",
+            "ok": false
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for s4clpj7e",
+            "ok": true
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Third-party Verifier": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Nonce matches request: request nonce wanoughr, presented replayed-fsffjwr8",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce v7pf6dzk",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Third-party Issuer signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce wanoughr, presented replayed-fsffjwr8",
+            "ok": false
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for s0m36sdv",
+            "ok": true
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      }
+    },
+    "sd-jwt__revoked": {
+      "Inji Certify > Inji Wallet > Inji Verify": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Not revoked: status list lookup for 2fplvh6d",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce urv92b59",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce jw5mfhka, presented jw5mfhka",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for 2fplvh6d",
+            "ok": false
+          }
+        ]
+      },
+      "Inji Certify > Inji Wallet > Third-party Verifier": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Not revoked: status list lookup for ds8ahqfz",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce xrpr4okg",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce akvs5lkw, presented akvs5lkw",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for ds8ahqfz",
+            "ok": false
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Inji Verify": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Not revoked: status list lookup for 4vpj2082",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce 47y7ybwh",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Third-party Issuer signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce 8azlh7pe, presented 8azlh7pe",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for 4vpj2082",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Third-party Verifier": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Not revoked: status list lookup for 5r7so8e6",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce igohwis6",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Third-party Issuer signed a sd-jwt credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier understands sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce jwti6f76, presented jwti6f76",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for 5r7so8e6",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists sd-jwt",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "Third-party Wallet cannot accept sd-jwt. It accepts: ldp_vc",
+            "ok": false
+          }
+        ]
+      }
+    },
+    "ldp_vc__none": {
+      "Inji Certify > Inji Wallet > Inji Verify": {
+        "pass": true,
+        "label": "PASS",
+        "reason": "",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce 870rd56f",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce unzaox17, presented unzaox17",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for 2nakjgqu",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Inji Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Verifier cannot read ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce 23qt2mk6",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier cannot read ldp_vc",
+            "ok": false
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce a3w5pbzi, presented a3w5pbzi",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for y44eizf0",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Inji Verify": {
+        "pass": true,
+        "label": "PASS",
+        "reason": "",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Third-party Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce md3xhffo",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce 98vebu9i, presented 98vebu9i",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for pf840y5r",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Verifier cannot read ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Third-party Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce 4dq4c20r",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier cannot read ldp_vc",
+            "ok": false
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce lxqa2nlc, presented lxqa2nlc",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for ei8vsdse",
+            "ok": true
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      }
+    },
+    "ldp_vc__tamper": {
+      "Inji Certify > Inji Wallet > Inji Verify": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Issuer signature: ES256 signature checked against the issuer public key",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce er5a3vz4",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": false
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce svm2iegy, presented svm2iegy",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for h3ogb14o",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Inji Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Format supported: Third-party Verifier cannot read ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce 5d42zse2",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier cannot read ldp_vc",
+            "ok": false
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": false
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce qldmgl6m, presented qldmgl6m",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for j7c5oq8f",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Inji Verify": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Issuer signature: ES256 signature checked against the issuer public key",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Third-party Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce 4s1hak5u",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": false
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce lyhrpc6r, presented lyhrpc6r",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for l0c6hqqr",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Format supported: Third-party Verifier cannot read ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Third-party Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce sh7uqrhs",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier cannot read ldp_vc",
+            "ok": false
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": false
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce 38ug6axa, presented 38ug6axa",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for 1ugc6kmm",
+            "ok": true
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      }
+    },
+    "ldp_vc__expired": {
+      "Inji Certify > Inji Wallet > Inji Verify": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Not expired: exp = 6:17:01 AM",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce bvwnjmt5",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 6:17:01 AM",
+            "ok": false
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce 9sahivtz, presented 9sahivtz",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for ujmgb5gz",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Inji Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Format supported: Third-party Verifier cannot read ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce 096n5c6r",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier cannot read ldp_vc",
+            "ok": false
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 6:17:01 AM",
+            "ok": false
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce ywhg6gjk, presented ywhg6gjk",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for oz8yps3z",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Inji Verify": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Not expired: exp = 6:17:01 AM",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Third-party Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce y6kipdfi",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 6:17:01 AM",
+            "ok": false
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce whncqku1, presented whncqku1",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for 2z5tha85",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Format supported: Third-party Verifier cannot read ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Third-party Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce jhwjf5ng",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier cannot read ldp_vc",
+            "ok": false
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 6:17:01 AM",
+            "ok": false
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce kkflzw2t, presented kkflzw2t",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for c4yqm3yk",
+            "ok": true
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      }
+    },
+    "ldp_vc__nonce": {
+      "Inji Certify > Inji Wallet > Inji Verify": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Nonce matches request: request nonce 96gdp06r, presented replayed-nc2i96da",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce w1097psh",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce 96gdp06r, presented replayed-nc2i96da",
+            "ok": false
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for e83uqrox",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Inji Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Format supported: Third-party Verifier cannot read ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce 3c6no17o",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier cannot read ldp_vc",
+            "ok": false
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce 8p6ksh6m, presented replayed-meingltt",
+            "ok": false
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for dzzhx8ku",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Inji Verify": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Nonce matches request: request nonce 4xvazh4e, presented replayed-2ed1alx2",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Third-party Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce 93zw0oyj",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce 4xvazh4e, presented replayed-2ed1alx2",
+            "ok": false
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for h8ecrorj",
+            "ok": true
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Format supported: Third-party Verifier cannot read ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Third-party Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce j6e6bapu",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier cannot read ldp_vc",
+            "ok": false
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce 0y4uc0m9, presented replayed-k9tcwejb",
+            "ok": false
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for 421z8qc4",
+            "ok": true
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      }
+    },
+    "ldp_vc__revoked": {
+      "Inji Certify > Inji Wallet > Inji Verify": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Not revoked: status list lookup for tkbavxmp",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce 4tx6yuky",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce 4erye30g, presented 4erye30g",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for tkbavxmp",
+            "ok": false
+          }
+        ]
+      },
+      "Inji Certify > Inji Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Format supported: Third-party Verifier cannot read ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Inji Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce u2owf4z3",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier cannot read ldp_vc",
+            "ok": false
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce 2qi5qgug, presented 2qi5qgug",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for j7687969",
+            "ok": false
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Inji Verify": {
+        "pass": true,
+        "label": "REJECTED",
+        "reason": "Not revoked: status list lookup for 3jv090au",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Third-party Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce rnnt9eg1",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Inji Verify understands ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce 7l6fybvq, presented 7l6fybvq",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for 3jv090au",
+            "ok": false
+          }
+        ]
+      },
+      "Inji Certify > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Format supported: Third-party Verifier cannot read ldp_vc",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "GET /.well-known/openid-credential-issuer lists ldp_vc",
+            "ok": true
+          },
+          {
+            "t": "Credential offer",
+            "d": "openid-credential-offer:// sent to Third-party Wallet (pre-authorized code)",
+            "ok": true
+          },
+          {
+            "t": "Token and proof",
+            "d": "Code exchanged for access token. Wallet proves key ownership with c_nonce 0o14rbb8",
+            "ok": true
+          },
+          {
+            "t": "Credential issued",
+            "d": "Inji Certify signed a ldp_vc credential with ES256",
+            "ok": true
+          },
+          {
+            "t": "Format supported",
+            "d": "Third-party Verifier cannot read ldp_vc",
+            "ok": false
+          },
+          {
+            "t": "Issuer signature",
+            "d": "ES256 signature checked against the issuer public key",
+            "ok": true
+          },
+          {
+            "t": "Not expired",
+            "d": "exp = 7:18:01 AM",
+            "ok": true
+          },
+          {
+            "t": "Nonce matches request",
+            "d": "request nonce dgxis58g, presented dgxis58g",
+            "ok": true
+          },
+          {
+            "t": "Not revoked",
+            "d": "status list lookup for 3xhbzhc1",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Inji Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Inji Verify": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      },
+      "Third-party Issuer > Third-party Wallet > Third-party Verifier": {
+        "pass": false,
+        "label": "FAIL",
+        "reason": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+        "steps": [
+          {
+            "t": "Issuer metadata",
+            "d": "Third-party Issuer does not offer ldp_vc. It offers: sd-jwt",
+            "ok": false
+          }
+        ]
+      }
+    }
+  }
+}
